@@ -11,7 +11,7 @@ Redmine::Plugin.register :projects_tree_view do
   name 'Projects Tree View plugin'
   author 'Chris Peterson'
   description 'This is a Redmine plugin which will turn the projects page into a tree view'
-  version '0.0.2'
+  version '0.0.3'
 end
 
 class ProjectsTreeViewListener < Redmine::Hook::ViewListener
