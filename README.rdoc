@@ -1,3 +1,63 @@
-= projects_tree_view
+=Projects Tree View plugin
 
-Description goes here
+Projects Tree View is a Redmine plugin which will turn the projects index view into a tree view. It also
+propagates the tree view to the project show page's subprojects list.
+
+==Author
+
+* Chris Peterson
+
+==Changelog
+
+For the complete changelog see the <tt>CHANGELOG</tt>-file in the Projects Tree View plugin directory.
+
+==Latest stable release
+
+The currently available, latest stable release of the plugin is version <b>0.0.3</b>.
+
+==Compatibility
+
+This plugin is compatible with Redmine trunk only!
+
+==Obtaining 
+
+<i>URL of the GitHub repository: http://github.com/MischaTheEvil/projects_tree_view/tree/master</i>
+
+The source of this plugin can be "cloned" from the GitHub-repo using:
+
+<tt>$ cd {RAILS_ROOT}/vendor/plugins && git clone git://github.com/MischaTheEvil/projects_tree_view.git</tt>
+
+==Installation
+
+- Download the plugin from the available source (see http://www.redmine.org/wiki/redmine/PluginProjectsTreeView#Obtaining)
+- Install the plugin as described at: http://www.redmine.org/wiki/redmine/Plugins (<b>this plugin does not require a plugin database migration</b>)
+- Restart Redmine
+
+==Usage
+
+Just install the plugin. After restarting both the views are modified and rendered using the views provided by the plugin.
+
+==Upgrading
+
+- Backup the currently deployed Projects Tree View plugin (<tt>cp -r /vendor/plugins/projects_tree_view /vendor/plugins/projects_tree_view-backup</tt>)
+- Update the plugin using <tt>git pull</tt>
+- Restart your Redmine
+
+==Uninstalling
+
+- Remove the directory <i>"projects_tree_view"</i> from the plugin-directory <i>"../vendor/plugins"</i>
+- Restart Redmine
+
+==Licensing
+
+This plugin is open-source and licensed under the "GNU General Public License v2" (GPL, http://www.gnu.org/licenses/old-licenses/gpl-2.0.html). See the included <tt>GPL.txt</tt> and <tt>LICENSE.txt</tt> files for details.
+
+* (C)2009, Chris Peterson
+* (C)2009, Mischa The Evil
+
+==Support
+
+If you would like to report a bug or request a new feature you can open a new issue at the issue-tracking section of the plugins' GitHub site: http://github.com/MischaTheEvil/projects_tree_view/issues.
+You can also post your feedback about the plugin in the dedicated plugin-section of the Redmine forums (http://www.redmine.org/projects/redmine/boards/3)
+
+As an alternative you can also join the <tt>#redmine</tt> channel on the "freenode IRC network" (http://freenode.net/irc_servers.shtml) to see if there is anyone who can provide some support.
