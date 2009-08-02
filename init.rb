@@ -1,5 +1,12 @@
 require 'redmine'
 
+# Patches to the Redmine core.
+require 'dispatcher'
+require 'projectstreeview_projects_helper_patch'
+Dispatcher.to_prepare do
+  ProjectsHelper.send(:include, ProjectstreeviewProjectsHelperPatch)
+end
+
 Redmine::Plugin.register :projects_tree_view do
   name 'Projects Tree View plugin'
   author 'Chris Peterson'

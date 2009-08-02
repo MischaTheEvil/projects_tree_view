@@ -1,5 +1,9 @@
 <div class="contextual">
-    <%= link_to(l(:label_project_new), {:controller => 'projects', :action => 'add'}, :class => 'icon icon-add') + ' |' if User.current.admin? %>
+    <% if authorize_global_implemented %>
+      <%= link_to(l(:label_project_new), {:controller => 'projects', :action => 'add'}, :class => 'icon icon-add') + ' |' if User.current.allowed_to?(:add_project, nil, :global => true) %>
+    <% else %>
+      <%= link_to(l(:label_project_new), {:controller => 'projects', :action => 'add'}, :class => 'icon icon-add') + ' |' if User.current.admin? %>
+    <% end %>
     <%= link_to l(:label_issue_view_all), { :controller => 'issues' } %> |
     <%= link_to l(:label_overall_activity), { :controller => 'projects', :action => 'activity' }%>
 </div>
@@ -33,7 +37,7 @@
 				<% ancestors << project.id %>	
 			<% else %>
 				<% while (ancestors.any? && !(project.parent_id == ancestors.last)) %>
-					<% ancestors.pop %>            
+					<% ancestors.pop %>
 				<% end %>
 				<% classes += " hide" %>
 				<% if( !(ancestors.detect {|pid| pid == project.parent_id })) %>
@@ -52,7 +56,7 @@
 				<% ancestors.each do |pid| %>
 					<% classes += " " + pid.to_s %>
 				<% end %>
-				<% ancestors << project.id %>				
+				<% ancestors << project.id %>
 			<% end %> 
 			<tr class="<%= classes %>" <%= rowid %> >
 				<td class="name"><%= "<span style=\"padding-left: " + (2*(ancestors.length-1)).to_s + "em;\"></span>" %><%= spanicon %><%= project.active? ? link_to(h(project.name), {:controller => 'projects', :action => 'show', :id => project}, :class => "project") : h(project.name) %><span <%= openonclick %> class="empty <%=User.current.member_of?(project) ? 'my-project' : nil%>">&nbsp</span></td>
